@@ -2,7 +2,7 @@ CXX = g++
 
 CXXFLAGS = -std=c++11 -Wall
 
-SRCS = memory.cpp mypet.cpp 
+SRCS = oop.cpp
 EXES = $(SRCS:.cpp=)
 
 .PHONY: all clean
