@@ -2,6 +2,7 @@
 
 static int change_val(int *p);
 static int change_val(int &p);
+static int &function(int &a);
 
 int main() {
     // Ch2.1)
@@ -47,6 +48,16 @@ int main() {
     z = 3;
     std::cout << "x : " << x << " y : " << y << " z : " << z << std::endl;
 
+    // ch.2.5)
+//  int &ref = 4; // impossible but...
+    const int &ref = 4;
+    std::cout << ref << std::endl;
+
+    // ch.2.6)
+    int b = 2;
+    int c = function(b);
+
+    std::cout << "c : " << c << std::endl;
     return 0;
 }
 
@@ -58,4 +69,9 @@ int change_val(int *p) {
 int change_val(int &p) {
     p = 3;
     return 0;
+}
+
+int& function(int& a) {
+    a = 2;
+    return a;
 }
