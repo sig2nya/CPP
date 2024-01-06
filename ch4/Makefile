@@ -2,7 +2,7 @@ CXX = g++
 
 CXXFLAGS = -std=c++11 -Wall
 
-SRCS = oop.cpp
+SRCS = oop.cpp overloading.cpp date.cpp
 EXES = $(SRCS:.cpp=)
 
 .PHONY: all clean
