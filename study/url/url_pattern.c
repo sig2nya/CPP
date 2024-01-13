@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <regex.h>
 
+// The Process based on input url check regex
 int main() {
     const char *type = "z[0-9]+\\.b2te\\.bid";
 
