@@ -7,5 +7,6 @@ int main()
 	*p = 10;
 
 	std::cout << *p << std::endl;
+	delete p;
 	return 0;
 }
