@@ -1,15 +1,19 @@
-.PHONY: all clean
+CC = g++
+CFLAGS = -Wall -std=c++11
 
-SUBDIRS := ch1 ch2 ch3 ch4 ch10  # ì—¬ê¸°ì— ì¡´ìž¬í•˜ëŠ” ì±•í„° ë””ë ‰í† ë¦¬ë¥¼ ë‚˜ì—´
+# ¸ðµç ch* µð·ºÅä¸®¸¦ °Ë»öÇÏ¿© Æ÷ÇÔ
+SUBDIRS := $(wildcard ch*)
 
-all:
-	@for dir in $(SUBDIRS); do \
-		echo "Building in $$dir..."; \
-		$(MAKE) -C $$dir; \
-	done
+# °¢ µð·ºÅä¸® ³»ÀÇ cpp ÆÄÀÏÀ» ¿ÀºêÁ§Æ® ÆÄÀÏ·Î º¯È¯
+SOURCES := $(wildcard $(patsubst %, %/*.cpp, $(SUBDIRS)))
+OBJECTS := $(SOURCES:.cpp=.o)
+EXECUTABLES := $(SOURCES:.cpp=)
+
+all: $(EXECUTABLES)
+
+# °¢ ¼Ò½º ÆÄÀÏÀ» °³º° ½ÇÇà ÆÄÀÏ·Î ÄÄÆÄÀÏ
+%: %.cpp
+	$(CC) $(CFLAGS) $< -o $@
 
 clean:
-	@for dir in $(SUBDIRS); do \
-		echo "Cleaning in $$dir..."; \
-		$(MAKE) -C $$dir clean; \
-	done
+	rm -f $(EXECUTABLES) $(OBJECTS)
