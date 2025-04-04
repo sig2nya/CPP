@@ -42,7 +42,7 @@ Marine::Marine(int x, int y) {
 }
 
 Marine::Marine(int x, int y, const char *marine_name) {
-	name = new char[strlen(marine_name) + 1];
+	name = new char[strlen(marine_name) + 1]; // 동적할당. Delete(Free) 시켜야함
 	strcpy(name, marine_name);
 
 	coord_x = x;
@@ -80,21 +80,8 @@ void Marine::show_status() {
 }
 
 int main() {
-#if 0
-	Marine marine1(2, 3);
-	Marine marine2(3, 5);
 
-	marine1.show_status();
-	marine2.show_status();
-
-	std::cout << std::endl << "marine1 attacked to marine2" << std::endl;
-	marine2.be_attacked(marine1.attack());
-
-	marine1.show_status();
-	marine2.show_status();
-#endif
-
-	Marine *marines[100];
+	Marine* marines[100];
 
 	marines[0] = new Marine(2, 3);
 	marines[1] = new Marine(3, 5);
@@ -102,7 +89,7 @@ int main() {
 	marines[0]->show_status();
 	marines[1]->show_status();
 
-	std::cout << std::endl << "marine1 attacked to marine2" << std::endl;
+	std::cout << std::endl << "Marine1 Attack Marine2" << std::endl;
 
 	marines[0]->be_attacked(marines[1]->attack());
 
@@ -111,6 +98,5 @@ int main() {
 
 	delete marines[0];
 	delete marines[1];
-
 	return 0;
 }
