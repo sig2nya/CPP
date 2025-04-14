@@ -2,8 +2,9 @@
 #include <string.h>
 
 class MyString {
-	char *string_content;
-	int string_length;
+	private:
+		char *string_content;
+		int string_length;
 
 	public:
 		MyString(char c);
@@ -12,7 +13,8 @@ class MyString {
 		~MyString();
 
 		int length() const;
-		void print();
+
+		void print() const;
 		void println() const;
 };
 
@@ -26,11 +28,15 @@ MyString::MyString(const char *str) {
 	string_length = strlen(str);
 	string_content = new char[string_length];
 
-	for (int i = 0; i != string_length; i++) string_content[i] = str[i];
+	for (int i = 0; i != string_length; i++) {
+		string_content[i] = str[i];
+	}
 }
 
-MyString::MyString(const MyString& str) {
+MyString::MyString(const MyString &str) {
 	string_length = str.string_length;
+	string_content = new char[string_length];
+
 	for (int i = 0; i != string_length; i++) {
 		string_content[i] = str.string_content[i];
 	}
@@ -44,7 +50,7 @@ int MyString::length() const {
 	return string_length;
 }
 
-void MyString::print() {
+void MyString::print() const {
 	for (int i = 0; i != string_length; i++) {
 		std::cout << string_content[i];
 	}
@@ -61,9 +67,6 @@ int main() {
 	MyString str1("hello world!");
 	MyString str2(str1);
 
-	str1.print();
-	std::cout << std::endl;
-	str2.print();
-	std::cout << std::endl;
-	return 0;
+	str1.println();
+	str2.println();
 }

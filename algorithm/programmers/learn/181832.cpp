@@ -27,7 +27,7 @@ vector<vector<int>> solution(int n) {
 		int ny = y + dy[dir];
 
 		if (nx < 0 || ny < 0 || nx >= n || ny >= n || answer[ny][nx] != 0) {
-            dir = (dir + 1) % 4;
+            dir = (dir + 1) % 4; // Change Direction rigth -> up -> left -> down -> right -> ...
             nx = x + dx[dir];
             ny = y + dy[dir];
         }
