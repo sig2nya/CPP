@@ -107,10 +107,12 @@ MyString& MyString::assign(const char* str) {
 	for (int i = 0; i != str_length; i++) {
 		string_content[i] = str[i];
 	}
+
+	return *this;
 }
 
 int MyString::capacity() const {
-	return memroy_capacity;
+	return memory_capacity;
 }
 
 void MyString::reverse(int size) {
@@ -145,7 +147,7 @@ MyString& MyString::insert(int loc, const MyString& str) {
 	if (string_length + str.string_length > memory_capacity) {
 		memory_capacity = string_length + str.string_length;
 
-		char * prev_string_content = string_length;
+		char *prev_string_content = string_content;
 		string_content = new char[memory_capacity];
 		
 		int i;	
