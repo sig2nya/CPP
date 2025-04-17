@@ -26,7 +26,7 @@ int binary_search(std::vector<int> v, int num) {
 }
 
 int main() {
-    std::vector<int> numbers = {4, 2, 7, 1, 9, 5};
+    std::vector<int> numbers = { 4, 2, 7, 1, 9, 5 };
 
     std::cout << "Sol : " << binary_search(numbers, 5) << std::endl;
 
