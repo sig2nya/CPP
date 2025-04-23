@@ -15,7 +15,7 @@ class MyString {
 
 		int length() const;
 		int capacity() const;
-		void reverse(int size);
+		void reserve(int size);
 
 		void print() const;
 		void println() const;
@@ -28,6 +28,14 @@ class MyString {
 		MyString& insert(int loc, const MyString& str);
 		MyString& insert(int loc, const char* str);
 		MyString& insert(int loc, char c);
+
+		MyString& erase(int loc, int num);
+
+		int find(int find_from, const MyString& str) const;
+		int find(int find_from, const char* str) const;
+		int find(int find_from, char c) const;
+
+		int compare(const MyString& str) const;
 };
 
 MyString::MyString(char c) {
@@ -115,7 +123,7 @@ int MyString::capacity() const {
 	return memory_capacity;
 }
 
-void MyString::reverse(int size) {
+void MyString::reserve(int size) {
 	if (size > memory_capacity) {
 		char *prev_string_content = string_content;
 
@@ -191,10 +199,68 @@ MyString& MyString::insert(int loc, char c) {
 	return insert(loc, temp);
 }
 
-int main() {
-	MyString str1("hello world!");
-	MyString str2(str1);
+MyString& MyString::erase(int loc, int num) {
+	if (num < 0 || loc < 0 || loc > string_length) return *this;
 
+	for (int i = loc + num; i < string_length; i++) {
+		string_content[i - num] = string_content[i];
+	}
+
+	string_length -= num;
+	return *this;
+}
+
+int MyString::find(int find_from, const MyString& str) const {
+	int i, j;
+	if (str.string_length == 0) return -1;
+
+	for (i = find_from; i <= string_length - str.string_length; i++) {
+		for (j = 0; j < str.string_length; j++) {
+			if (string_content[i + j] != str.string_content[j]) break;
+		}
+
+		if (j == str.string_length) return i;
+	}
+
+	return -1;
+}
+
+int MyString::find(int find_from, const char* str) const {
+	MyString temp(str);
+	return find(find_from, temp);
+}
+
+int MyString::find(int find_from, char c) const {
+	MyString temp(c);
+	return find(find_from, temp);
+}
+
+int MyString::compare(const MyString& str) const {
+	for (int i = 0; i < std::min(string_length, str.string_length); i++) {
+		if (string_content[i] > str.string_content[i])
+			return 1;
+
+		else if (string_content[i] < str.string_content[i])
+			return -1;
+	}
+
+	if (string_length == str.string_length) return 0;
+	else if (string_length > str.string_length) return 1;
+
+	return -1;
+}
+
+int main() {
+	MyString str1("very long string");
+	MyString str2("<some string inserted between>");
+	str1.reserve(30);
+
+	std::cout << "Capacity : " << str1.capacity() << std::endl;
+	std::cout << "String length : " << str1.length() << std::endl;
 	str1.println();
-	str2.println();
+
+	str1.insert(5, str2);
+	str1.println();
+
+	return 0;
 }
