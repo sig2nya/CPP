@@ -2,7 +2,7 @@ CXX = g++
 
 CXXFLAGS = -std=c++11 -Wall
 
-SRCS = class.cpp overloading.cpp constructor.cpp starcraft.cpp destructor.cpp starcraft2.cpp my_string.cpp assign.cpp
+SRCS = 7698.cpp 7695.cpp 7353.cpp 7368.cpp
 EXES = $(SRCS:.cpp=)
 
 .PHONY: all clean
