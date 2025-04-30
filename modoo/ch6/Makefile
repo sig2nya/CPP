@@ -2,7 +2,7 @@ CXX = g++
 
 CXXFLAGS = -std=c++11 -Wall
 
-SRCS = map.cpp pair.cpp string.cpp
+SRCS = string.cpp employee.cpp
 EXES = $(SRCS:.cpp=)
 
 .PHONY: all clean
