@@ -1,8 +1,8 @@
 CXX = g++
 
-CXXFLAGS = -std=c++11 -Wall
+CXXFLAGS = -std=c++11 -Wall -pthread
 
-SRCS = string.cpp employee.cpp inheritance.cpp
+SRCS = thread.cpp not_join_thread.cpp thread_detach.cpp mutex.cpp
 EXES = $(SRCS:.cpp=)
 
 .PHONY: all clean
