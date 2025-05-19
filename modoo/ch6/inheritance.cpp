@@ -2,7 +2,8 @@
 #include <string>
 
 class Base {
-	std::string s;
+	private:
+		std::string s;
 
 	public:
 		Base() : s("Based") {
@@ -15,21 +16,26 @@ class Base {
 };
 
 class Derived : public Base {
-	std::string s;
+	private:
+		std::string s;
 	
 	public:
 		Derived() : Base(), s("Derived") {
 			std::cout << "Derived Class" << std::endl;
-			what();
+		}
+
+		void what() {
+			std::cout << s << std::endl;
 		}
 };
 
 int main() {
-	std::cout << " === Based Class === " << std::endl;
 	Base p;
-
-	std::cout << " === Derived Class === " << std::endl;
 	Derived c;
+
+	std::cout << " === Pointer Version === " << std::endl;
+	Base* p_c = &c;
+	p_c->what();
 
 	return 0;
 }

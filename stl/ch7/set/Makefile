@@ -2,7 +2,7 @@ CXX = g++
 
 CXXFLAGS = -std=c++11 -Wall
 
-SRCS = string.cpp employee.cpp inheritance.cpp init_list.cpp
+SRCS = set.cpp
 EXES = $(SRCS:.cpp=)
 
 .PHONY: all clean
