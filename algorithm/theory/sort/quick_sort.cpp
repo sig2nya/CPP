@@ -10,9 +10,9 @@ void quickSort(vector<int>& arr, int left, int right) {
 	int i = left, j = right;
 
 	while (i <= j) {
-		// if arr[i] is smaller than pivot, skip. if bigger than pivot, stop idx
+		// if arr[i] is smaller than pivot, skip. if bigger than pivot, stop and check idx
 		while (arr[i] < pivot) i++;
-		// if arr[i] is bigger than pivot, skip. if smaller than pivot, stop idx
+		// if arr[i] is bigger than pivot, skip. if smaller than pivot, stop and check idx
 		while (arr[j] > pivot) j--;
 
 		if (i <= j) {

@@ -14,9 +14,11 @@ int binary_search(std::vector<int> v, int num) {
 
         if (num == mid_value) {
             return mid;
-        } else if (mid_value < num) {
+        }
+		else if (mid_value < num) {
             left = mid + 1;
-        } else {
+        }
+		else {
             right = mid - 1;
         }
     }
