@@ -1,4 +1,4 @@
-SUBDIRS := algorithm modoo stl
+SUBDIRS := algorithm modoo stl data_structure
 
 .PHONY: all clean
 

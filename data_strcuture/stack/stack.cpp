@@ -21,7 +21,6 @@ class Stack {
 
 		int size() {
 			return stack.size();
-		
 		}
 
 		int empty() {

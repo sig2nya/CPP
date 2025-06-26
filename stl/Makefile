@@ -2,7 +2,7 @@ CXX = g++
 
 CXXFLAGS = -std=c++11 -Wall
 
-SRCS = map.cpp pair.cpp sort.cpp
+SRCS = map.cpp pair.cpp sort.cpp queue.cpp
 EXES = $(SRCS:.cpp=)
 
 .PHONY: all clean
