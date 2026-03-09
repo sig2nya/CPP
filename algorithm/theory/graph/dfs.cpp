@@ -13,7 +13,7 @@ void dfs(int curr) {
 	cout << curr << " visited" << endl;
 
 	for (int next : adj[curr]) {
-		if (!visieted[next]) {
+			if (!visited[next]) {
 			dfs(next);
 		}
 	}
