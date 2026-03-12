@@ -27,3 +27,8 @@ void quickSort(vector<int>& arr, int left, int right) {
 	quickSort(arr, left, j);
 	quickSort(arr, i,    right);
 }
+
+int main() {
+	cout << "Test" << endl;
+	return 0;
+}
