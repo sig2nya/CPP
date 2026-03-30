@@ -4,28 +4,47 @@
 
 using namespace std;
 
-const int MAX = 10001;
-vector<int> adj[MAX];
-bool visited[MAX];
+bool visited[9]; 
+vector<int> graph[9];
 
-void dfs(int curr) {
-	visited[curr] = true;
-	cout << curr << " visited" << endl;
+void dfs(int x) {
+    visited[x] = true;
+    cout << x << " ";
 
-	for (int next : adj[curr]) {
-			if (!visited[next]) {
-			dfs(next);
-		}
-	}
+    for (int i = 0; i < graph[x].size(); i++) {
+        int y = graph[x][i];
+        if (!visited[y]) {
+            dfs(y);
+        }
+    }
 }
 
 int main() {
-	adj[1].push_back(2);
-	adj[1].push_back(3);
-	adj[2].push_back(4);
-	adj[3].push_back(5);
+    graph[1].push_back(2);
+    graph[1].push_back(3);
+    graph[1].push_back(8);
 
-	dfs(1);
+    graph[2].push_back(1);
+    graph[2].push_back(7);
 
-	return 0;
+    graph[3].push_back(1);
+    graph[3].push_back(4);
+    graph[3].push_back(5);
+
+    graph[4].push_back(3);
+    graph[4].push_back(5);
+
+    graph[5].push_back(3);
+    graph[5].push_back(4);
+
+    graph[7].push_back(2);
+    graph[7].push_back(6);
+    graph[7].push_back(8);
+
+    graph[8].push_back(1);
+    graph[8].push_back(7);
+
+    dfs(1);
+
+    return 0;
 }
