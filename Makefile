@@ -1,4 +1,4 @@
-SUBDIRS := algorithm modoo stl data_structure
+SUBDIRS := algorithm modoo stl data_structure naver network raii reference stl struct
 
 .PHONY: all clean
 

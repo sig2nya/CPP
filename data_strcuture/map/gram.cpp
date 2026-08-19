@@ -2,19 +2,21 @@
 #include <map>
 #include <string>
 
+using namespace std;
+
 int main() {
-	std::map<std::string, int> userMap;
+	map<std::string, int> userMap;
 
 	userMap["Alice"] = 25;
 	userMap.insert({"Bob", 38});
 
 	auto it = userMap.find("Alice");
 	if (it != userMap.end()) {
-		std::cout << "Found : " << it->second << std::endl;
+		cout << "Found : " << it->second << endl;
 	}
 
 	for (const auto&  pair : userMap) {
-		std::cout << pair.first << " : " << pair.second << std::endl;
+		cout << pair.first << " : " << pair.second << endl;
 	}
 
 	return 0;

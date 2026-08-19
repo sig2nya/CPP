@@ -1,6 +1,6 @@
 #include <iostream>
 
-void modifyWithPoinder(int *p) {
+void modifyWithPointer(int *p) {
 	if (p != NULL) {
 		*p += 10;
 	}
