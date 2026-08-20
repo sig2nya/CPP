@@ -1,19 +1,41 @@
-#include <queue>
 #include <iostream>
 
 using namespace std;
 
-int main() {
-	queue<int> q;
+struct Node {
+	Node* next;
+	int data;
 
-	for (int i = 0; i < 5; i++) {
-		q.push(i);
-	}
+	Node(int value) : next(nullptr), data(value) {}
+};
 
-	while (!q.empty()) {
-		cout << q.front() << " ";
-		q.pop();
-	}
+class Queue {
+	private:
+		Node* front;
+		Node* rear;
 
-	return 0;
-}
+	public:
+		Queue() : front(nullptr), rear(nullptr) {}
+
+		void push(int value) {
+			Node* tmp = new Node(value);
+
+			if (rear == nullptr) {
+				front = rear = tmp;
+				return;
+			}
+
+			rear->next = tmp;
+			rear = tmp;
+		}
+
+		void pop() {
+			if (front == nullptr) return;
+
+			Node* tmp = front;
+			front = front->next;
+			delete tmp;
+
+			if (front == nullptr) rear = nullptr;
+		}
+};
