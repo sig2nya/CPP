@@ -2,7 +2,7 @@ CXX = g++
 
 CXXFLAGS = -std=c++11 -Wall
 
-SRCS = set.cpp
+SRCS = set.cpp duplicate_set.cpp
 EXES = $(SRCS:.cpp=)
 
 .PHONY: all clean
