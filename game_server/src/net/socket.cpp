@@ -12,6 +12,11 @@ Socket::Socket() {
 			  << '\n';
 }
 
+Socket::Socket(Socket&& other) noexcept {
+	fd_ = other.fd_;
+	other.fd_ = -1;
+}
+
 Socket::~Socket() {
 	if (fd_ >= 0) {
 		std::cout << "[Destructed] fd = "
