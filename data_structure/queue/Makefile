@@ -3,7 +3,7 @@ CXX = g++
 CXXFLAGS = -Wall -O2 -std=c++11
 
 # 2. 소스 파일 목록 자동 탐색 (.cpp 파일 전부)
-SRCS = queue.cpp test.cpp
+SRCS = queue.cpp
 # 만약 디렉토리 내 모든 cpp를 자동으로 넣고 싶다면 아래 주석을 풀고 위 줄을 지우세요.
 # SRCS = $(wildcard *.cpp)
 

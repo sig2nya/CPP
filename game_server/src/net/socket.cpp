@@ -17,6 +17,19 @@ Socket::Socket(Socket&& other) noexcept {
 	other.fd_ = -1;
 }
 
+Socket& Socket::operator=(Socket&& other) noexcept {
+	if (this != &other) {
+		if (fd_ >= 0) {
+			::close(fd_);
+		}
+
+		fd_ = other.fd_;
+		other.fd_ = -1;
+	}
+
+	return *this;
+}
+
 Socket::~Socket() {
 	if (fd_ >= 0) {
 		std::cout << "[Destructed] fd = "
